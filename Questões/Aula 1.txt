@@ -1,0 +1,27 @@
+Data: 09/08/2017
+
+1. O que são sistemas embarcados?
+	São sistemas que usam dispositivos compostos de hardware e software, que visam a execução repetida de apenas uma função pré-determinada. 
+	
+2. O que são sistemas microprocesssados?
+	São sistemas que possuem como alicerce microprocessadores(executam funções enviadas por outros componentes), além disso possuem memória, clock, portas I/O, etc. 
+
+3. Apresente aplicações de sistemas embarcados:
+	(a) Para a indústria automotiva;
+Controle de módulos como airbags, transmissão, freios.. alguns exemplos são:
+- Braking Assistant (BAS): em casos de colisão eminente, alguns condutores pisam bruscamente no pedal de freio, mas o mantêm fortemente pressionado apenas durante um curto espaço de tempo. O sistema “percebe” a intenção do condutor e amplifica a intensidade da frenagem, de maneira a garantir uma desaceleração máxima.
+- Anti Blocking System (ABS): impede o bloqueio das rodas durante a frenagem, evitando que o veículo derrape. 
+
+	(b) Para eletrodomésticos;
+- Controle de temperatura de geladeiras, ar-condicionados e fornos. 
+- Cafeteiras com time pré-programado
+
+	(c) Para automação industrial.
+- Alarmes residenciais 
+- Sistemas de identificação 
+
+4. Cite arquiteturas possíveis e as diferenças entre elas.
+Arquitetura RISC e CISC. A RISC é constituída por um pequeno conjunto de instruções simples que são executadas diretamente pelo hardware e por isso que os chips baseados nesta arquitetura são mais simples e muito mais baratos. CISC ou Complex Instruction Set Computer, é uma arquitetura de processadores capaz de executar um conjunto grande de instruções, a maioria delas em um elevado grau de complexidade 
+
+5. Por que usamos o MSP430 na disciplina, ao invés de outro microcontrolador?
+Devido ao custo acessível, além do uso de pouca memória quando comparados a outros microprocessadores.
