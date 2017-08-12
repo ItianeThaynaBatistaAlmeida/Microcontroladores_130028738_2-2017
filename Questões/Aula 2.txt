@@ -1,0 +1,30 @@
+Quais as diferenças entre os barramentos de dados e de endereços?
+	O barramento de dados é o caminho, onde que por meio dele ocorrem as trocas de dados enviados e recebidos (Um barramento de 16 bits suporta dados de até 16 bits para executar um comando de uma vez).
+	Barramento de endereços pode ser definido como o local onde os processos são extraidos e enviados. Se o barramento de endereços é de 16 bits, entãp podem ser acessados 2^16 endereços.
+
+Quais são as diferenças entre as memórias RAM e ROM?
+	A memória ROM é uma memória não volátil, e a RAM é uma memória volátil, ou seja, quando é desernergizada, a informação na memória é perdida.
+
+Considere o código abaixo:
+
+#include <stdio.h>
+int main(void)
+{
+	int i;
+	printf("Insira um número inteiro: ");
+	scanf("%d", &i);
+	if(i%2)
+		printf("%d eh impar.\n");
+	else
+		printf("%d eh par.\n");
+	return 0;
+}
+Para este código, responda: (a) A variável i é armazenada na memória RAM ou ROM? Por quê? (b) O programa compilado a partir deste código é armazenado na memória RAM ou ROM? Por quê?
+	A variável i é armazenada na memória RAM, pois é uma informação que não é tida como importante (a informação importante seria se é par ou impar). O programa é armazenado na ROM, pois é de interesse do usuário que o mesmo permaneça depois da desernegização do sistema.
+
+Quais são as diferenças, vantagens e desvantagens das arquiteturas Harvard e Von Neumann?
+
+Considere a variável inteira i, armazenando o valor 0x8051ABCD. Se i é armazenada na memória a partir do endereço 0x0200, como ficam este byte e os seguintes, considerando que a memória é: (a) Little-endian; (b) Big-endian.
+
+Sabendo que o processador do MSP430 tem registradores de 16 bits, como ele soma duas variáveis de 32 bits? 
+	Ele realizaria duas transmissões sucessivas, ou seja, ao invéz de 32 bits  processador lidaria com 2 variáveis de 16.
