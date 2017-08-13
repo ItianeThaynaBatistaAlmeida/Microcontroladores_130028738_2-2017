@@ -27,7 +27,7 @@ Quais são as diferenças, vantagens e desvantagens das arquiteturas Harvard e V
 
 Considere a variável inteira i, armazenando o valor 0x8051ABCD. Se i é armazenada na memória a partir do endereço 0x0200, como ficam este byte e os seguintes, considerando que a memória é: 
 (a) Little-endian: Nesse caso, o bit menos significativo (LSB) é armazenado na posição mais baixa da memória. Dessa forma, ficaria: CD na posição 0x0200, AB na 0x0201, 51 na 0x0202 e 80 na posição 0x0203.
-(b) Big-endian: Aqui, o bit mais significativo é armazenado na posição mais baixa da memória. Assim ficaria: 80 na posição 0x0200, 51 na 0x0201, AB na 0x0202 e CD na posição 0x0203.
+(b) Big-endian: Aqui, o bit mais significativo é armazenado na posição mais baixa da memória. Assim ficaria: 80 na posição 0x0200, 51 na 0x0201, AB na 0x0202 e CD na posição 0x0203. 
 
 Sabendo que o processador do MSP430 tem registradores de 16 bits, como ele soma duas variáveis de 32 bits? 
 	Ele realizaria duas transmissões sucessivas, ou seja, ao invéz de 32 bits o processador lidaria com 2 variáveis de 16.
