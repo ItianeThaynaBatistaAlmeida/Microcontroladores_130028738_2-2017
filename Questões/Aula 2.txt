@@ -1,17 +1,17 @@
-Quais as diferenÁas entre os barramentos de dados e de endereÁos?
-	O barramento de dados È o caminho, onde que por meio dele ocorrem as trocas de dados enviados e recebidos (Um barramento de 16 bits suporta dados de atÈ 16 bits para executar um comando de uma vez).
-	Barramento de endereÁos pode ser definido como o local onde os processos s„o extraidos e enviados. Se o barramento de endereÁos È de 16 bits, ent„p podem ser acessados 2^16 endereÁos.
+Quais as diferen√ßas entre os barramentos de dados e de endere√ßos?
+	O barramento de dados √© o caminho, onde que por meio dele ocorrem as trocas de dados enviados e recebidos (Um barramento de 16 bits suporta dados de at√© 16 bits para executar um comando de uma vez).
+	Barramento de endere√ßos pode ser definido como o local onde os processos s√£o extraidos e enviados. Se o barramento de endere√ßos √© de 16 bits, ent√£p podem ser acessados 2^16 endere√ßos.
 
-Quais s„o as diferenÁas entre as memÛrias RAM e ROM?
-	A memÛria ROM È uma memÛria n„o vol·til, e a RAM È uma memÛria vol·til, ou seja, quando È desernergizada, a informaÁ„o na memÛria È perdida.
+Quais s√£o as diferen√ßas entre as mem√≥rias RAM e ROM?
+	A mem√≥ria ROM √© uma mem√≥ria n√£o vol√°til, e a RAM √© uma mem√≥ria vol√°til, ou seja, quando √© desernergizada, a informa√ß√£o na mem√≥ria √© perdida.
 
-Considere o cÛdigo abaixo:
+Considere o c√≥digo abaixo:
 
 #include <stdio.h>
 int main(void)
 {
 	int i;
-	printf("Insira um n˙mero inteiro: ");
+	printf("Insira um n√∫mero inteiro: ");
 	scanf("%d", &i);
 	if(i%2)
 		printf("%d eh impar.\n");
@@ -19,12 +19,15 @@ int main(void)
 		printf("%d eh par.\n");
 	return 0;
 }
-Para este cÛdigo, responda: (a) A vari·vel i È armazenada na memÛria RAM ou ROM? Por quÍ? (b) O programa compilado a partir deste cÛdigo È armazenado na memÛria RAM ou ROM? Por quÍ?
-	A vari·vel i È armazenada na memÛria RAM, pois È uma informaÁ„o que n„o È tida como importante (a informaÁ„o importante seria se È par ou impar). O programa È armazenado na ROM, pois È de interesse do usu·rio que o mesmo permaneÁa depois da desernegizaÁ„o do sistema.
+Para este c√≥digo, responda: (a) A vari√°vel i √© armazenada na mem√≥ria RAM ou ROM? Por qu√™? (b) O programa compilado a partir deste c√≥digo √© armazenado na mem√≥ria RAM ou ROM? Por qu√™?
+	A vari√°vel i √© armazenada na mem√≥ria RAM, pois √© uma informa√ß√£o que n√£o √© tida como importante (a informa√ß√£o importante seria se √© par ou impar). O programa √© armazenado na ROM, pois √© de interesse do usu√°rio que o mesmo permane√ßa depois da desernegiza√ß√£o do sistema.
 
-Quais s„o as diferenÁas, vantagens e desvantagens das arquiteturas Harvard e Von Neumann?
+Quais s√£o as diferen√ßas, vantagens e desvantagens das arquiteturas Harvard e Von Neumann?
+	A principal diferen√ßa entra tais arquitetura √© que a arquitetura Harvard  separa o armazenamento e o comportamento das instru√ß√µes do CPU e os dados, enquanto que a Von Neymann utiliza o mesmo espa√ßo da mem√≥ria para ambos. Em rela√ß√£o as vantagens e desvantagens, temos que a arquitetura Harvard √© mais r√°pida pois permite acesso simultaneo, porem √© mais complexa, enquanto que a Von Neumann √© mais lenta pois nao permite acesso simult√¢neo, todavia √© mais simples.
 
-Considere a vari·vel inteira i, armazenando o valor 0x8051ABCD. Se i È armazenada na memÛria a partir do endereÁo 0x0200, como ficam este byte e os seguintes, considerando que a memÛria È: (a) Little-endian; (b) Big-endian.
+Considere a vari√°vel inteira i, armazenando o valor 0x8051ABCD. Se i √© armazenada na mem√≥ria a partir do endere√ßo 0x0200, como ficam este byte e os seguintes, considerando que a mem√≥ria √©: 
+(a) Little-endian: Nesse caso, o bit menos significativo (LSB) √© armazenado na posi√ß√£o mais baixa da mem√≥ria. Dessa forma, ficaria: CD na posi√ß√£o 0x0200, AB na 0x0201, 51 na 0x0202 e 80 na posi√ß√£o 0x0203.
+(b) Big-endian: Aqui, o bit mais significativo √© armazenado na posi√ß√£o mais baixa da mem√≥ria. Assim ficaria: 80 na posi√ß√£o 0x0200, 51 na 0x0201, AB na 0x0202 e CD na posi√ß√£o 0x0203.
 
-Sabendo que o processador do MSP430 tem registradores de 16 bits, como ele soma duas vari·veis de 32 bits? 
-	Ele realizaria duas transmissıes sucessivas, ou seja, ao invÈz de 32 bits  processador lidaria com 2 vari·veis de 16.
+Sabendo que o processador do MSP430 tem registradores de 16 bits, como ele soma duas vari√°veis de 32 bits? 
+	Ele realizaria duas transmiss√µes sucessivas, ou seja, ao inv√©z de 32 bits o processador lidaria com 2 vari√°veis de 16.
