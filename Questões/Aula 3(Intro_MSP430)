@@ -1,0 +1,35 @@
+1. Dada uma variável a do tipo char (um byte), escreva os trechos de código em C para: 
+
+(a) Somente setar o bit menos significativo de a. 
+    #define BITMSK BIT0 // 0000 0001
+    BITMSK&A = P1OUT // Mascara de BIT0 com variável char - OP AND
+
+(b) Somente setar dois bits de a: o menos significativo e o segundo menos significativo. 
+     #define BITMSK (BIT0+BIT1) // 0000 0011
+     BITMSK&A = P1OUT // Mascara de BITMk com variável char - Op AND
+     
+(c) Somente zerar o terceiro bit menos significativo de a.  
+    #define BITMSK (BIT0+BIT1+BIT3+BIT4+BIT5+BIT6+BIT7) // 1111 1011
+    BITMSK&A = P1OUT // Mascara de BITMK com variável char - Op AND
+    
+(d) Somente zerar o terceiro e o quarto bits menos significativo de a.
+    #define BITMSK (BIT0+BIT1+BIT4+BIT5+BIT6+BIT7) // 1111 0011
+    BITMSK^A = P1OUT // Mascara de BITMK com variável char - Op XOR
+
+(e) Somente inverter o bit mais significativo de a. 
+    #define BITMSK BIT7 // 1000 0000
+    BITMSK^A = P1OUT // Mascara de BITMK com variável char - Op XOR
+  
+(f) Inverter o nibble mais significativo de a, e setar o nibble menos significativo de a.
+    #define BITMSK (BIT7+BIT6+BIT5+BIT4) // 1111 0000
+    BITMSK^A = P1OUT // Mascara de BITMK com variável char - Op XOR
+
+2. Considerando a placa Launchpad do MSP430, escreva o código em C para piscar os dois LEDs ininterruptamente.
+
+3. Considerando a placa Launchpad do MSP430, escreva o código em C para piscar duas vezes os dois LEDs sempre que o usuário pressionar o botão.
+
+4. Considerando a placa Launchpad do MSP430, faça uma função em C que pisca os dois LEDs uma vez.
+
+5. Reescreva o código da questão 2 usando a função da questão 4.
+
+6. Reescreva o código da questão 3 usando a função da questão 4.
