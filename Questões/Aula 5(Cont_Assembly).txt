@@ -2,12 +2,29 @@ Para as questões 2 a 5, considere que as variáveis f, g, h, i e j são do tipo
 
 1. Escreva os trechos de código assembly do MSP430 para: 
 (a) Somente setar o bit menos significativo de R5. 
+    mov.w #1,R15
+    bis.w R15,R5 ; Op OR força bits a serem setados
+    
 (b) Somente setar dois bits de R6: o menos significativo e o segundo menos significativo. 
+    mov.w #3,R14
+    bis.w R14,R5  
+    
 (c) Somente zerar o terceiro bit menos significativo de R7. 
+    mov.w #4,R13
+    bic.w R13,R7 ; Realiza and com o inverso. bic usa 1 p/ selecionar quais bits zerar
+    
 (d) Somente zerar o terceiro e o quarto bits menos significativo de R8. 
+    mov.w #12,R12
+    bic.w R12,R8
+    
 (e) Somente inverter o bit mais significativo de R9. 
+    mov.w 0x8000, R11
+    xor.w R11,R9 ; xor usa 1 para forçar bits a serem invertidos
 (f) Inverter o nibble mais significativo de R10, e setar o nibble menos significativo de R10.
-
+     mov.w 0xF000,R15
+     bic.w R15,R10
+     mov.w #15,R14
+     bis.w R14,R10.
 2. "Traduza" o seguinte trecho de código em C para o assembly do MSP430:
 
 if(i>j) f = g+h+10;
