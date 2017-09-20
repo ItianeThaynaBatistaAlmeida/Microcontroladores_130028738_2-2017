@@ -1,11 +1,121 @@
-Para todas as questıes, utilize os LEDs e/ou os botıes da placa Launchpad do MSP430.
+Para todas as quest√µes, utilize os LEDs e/ou os bot√µes da placa Launchpad do MSP430.
 
-1. Escreva um cÛdigo em C que pisca os LEDs ininterruptamente.
+1. Escreva um c√≥digo em C que pisca os LEDs ininterruptamente.
 
-2. Escreva um cÛdigo em C que pisca os LEDs ininterruptamente. No ciclo que pisca os LEDs, o tempo que os LEDs ficam ligados deve ser duas vezes maior do que o tempo que eles ficam desligados.
+#include <msp430g2553.h>
 
-3. Escreva um cÛdigo em C que acende os LEDs quando o bot„o È pressionado.
+int main(void) {
+  volatile int i;
+ 
+  WDTCTL = WDTPW | WDTHOLD;
+  P1DIR =  BIT6 + BIT0;   // Define se o pino √© de entrada ou saida
+  P1OUT =  BIT6 + BIT0;  // Registrador de escrita, leva os pinos para nivel alto ou baixo bit6 : 01000000
+   
+  for (;;)    // loop infinito
+  {
+    P1OUT ^=  BIT6 + BIT0;               
 
-4. Escreva um cÛdigo em C que pisca os LEDs ininterruptamente somente se o bot„o for pressionado.
+    for (i = 0; i < 0x1000; i++);
+  }
+  
+  }
 
-5. Escreva um cÛdigo em C que acende os LEDs quando o bot„o È pressionado. Deixe o MSP430 em modo de baixo consumo, e habilite a interrupÁ„o do bot„o.
+2. Escreva um c√≥digo em C que pisca os LEDs ininterruptamente. No ciclo que pisca os LEDs, o tempo que os LEDs ficam ligados deve ser duas vezes maior do que o tempo que eles ficam desligados.
+
+#include <msp430g2553.h>
+#define BTN BIT2
+int main(void) {
+  volatile int i,j;
+  
+  WDTCTL = WDTPW | WDTHOLD;
+  P1DIR =  BIT6 + BIT0;
+  P1OUT = 0;
+  i = 0;
+  j = 0;
+  for (;;) {
+     
+  j = i*2;
+    
+    P1OUT ^=  BIT6 + BIT0;
+    for (i = 0; i < j ; i++);
+    P1OUT ^=  BIT6 + BIT0;
+    for (i = 0; i < 0x1000 ; i++);
+    P1OUT ^=  BIT6 + BIT0;
+    for (i = 0; i < j ; i++);
+    P1OUT ^=  BIT6 + BIT0;
+    for (i = 0; i < 0x1000 ; i++);
+   
+  } 
+  }
+
+3. Escreva um c√≥digo em C que acende os LEDs quando o bot√£o √© pressionado.
+
+#include <msp430g2553.h>
+#define BTN BIT2
+int main(void) {
+  volatile int i,j;
+  
+  WDTCTL = WDTPW | WDTHOLD;
+  P1DIR =  BIT6 + BIT0;
+  P1OUT = 0;
+  i = 0;
+  for (;;) {  
+     if((P1IN & BTN) == BTN){
+    P1OUT =  BIT6 + BIT0;
+    }
+     else P1OUT &=~(BIT6 + BIT0); 
+  }
+  
+  }
+
+4. Escreva um c√≥digo em C que pisca os LEDs ininterruptamente somente se o bot√£o for pressionado.
+#include <msp430g2553.h>
+#define BTN BIT2
+int main(void) {
+  volatile int i,j;
+  
+  WDTCTL = WDTPW | WDTHOLD;
+  P1DIR =  BIT6 + BIT0;
+  P1OUT = 0;
+  i = 0;
+  for (;;) {     
+     if((P1IN & BTN) == BTN){
+    P1OUT ^=  BIT6 + BIT0;
+     for(i = 0; i< 0x1000; i++);
+    }
+     else P1OUT &=~(BIT6 + BIT0);  
+    
+  }
+  }
+
+5. Escreva um c√≥digo em C que acende os LEDs quando o bot√£o √© pressionado. Deixe o MSP430 em modo de baixo consumo, e habilite a interrup√ß√£o do bot√£o.
+
+#include "msp430g2231.h"  
+void main(void)
+{
+  WDTCTL = WDTPW + WDTHOLD;    
+  CCTL0 = CCIE;                            
+  TACTL = TASSEL_2 + MC_1 + ID_3;          
+  CCR0 =  10000;                        
+  P1OUT &= 0x00;               
+  P1DIR &= 0x00;               
+  P1DIR |= BIT0 + BIT6;         
+  P1REN |= BIT3;               
+  P1OUT |= BIT3;               
+  P1IE |= BIT3;                
+  P1IES |= BIT3;               
+  P1IFG &= ~BIT3;              
+  _BIS_SR(CPUOFF + GIE);        
+  while(1)                     
+  {}
+} 
+// Port 1 interrupt service routine
+#pragma vector=PORT1_VECTOR
+__interrupt void Port_1(void)
+{ 
+   int i;
+   P1OUT ^= BIT6;                     
+   for(i = 0; i< 0x9000; i++);
+   P1OUT ^= BIT6; 
+   P1IFG &= ~BIT3;                   
+}
